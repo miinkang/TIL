@@ -38,7 +38,11 @@ def find_survivor(독, 돌의내구도):
     # print(answer)
     for i in 독:
         독의위치 = 0
-        while 독의위치 < len(돌의내구도)-1:
+
+        # It was wrong code from lecture. I found it!
+        # 의문이 안풀려 강의게시판에 질문했는데 잘못된 코드였다.
+        # while 독의위치 < len(돌의내구도)-1:
+        while 독의위치 <= len(돌의내구도):
             독의위치 += int(i["점프력"])
 
             # minus 1 because 돌의내구도 starts from 0
@@ -51,6 +55,7 @@ def find_survivor(독, 돌의내구도):
                 # remove = O(n), del = 0(1)    => use del
                 del answer[answer.index(i["이름"])]
                 break
+
     # (1) return answer except fail
     return [i for i in answer if i!= "fail"]
     # (2) return answer
